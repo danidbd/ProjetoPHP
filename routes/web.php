@@ -1,21 +1,25 @@
 <?php
-
 use App\Http\Controllers\GrupoEconomicoController;
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\BandeiraController;
+use App\Http\Controllers\UnidadeController;
+use App\Http\Controllers\ColaboradorController;
+use Illuminate\Routing\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', [GrupoEconomicoController ::class, 'index']);
+// Rotas para Grupo Econômico
+Route::resource('grupos', GrupoEconomicoController::class);
+
+// Rotas para Bandeira
+Route::resource('bandeiras', BandeiraController::class);
+
+// Rotas para Unidade
+Route::resource('unidades', UnidadeController::class);
+
+// Rotas para Colaborador
+Route::resource('colaboradores', ColaboradorController::class);
+
+
+?>
